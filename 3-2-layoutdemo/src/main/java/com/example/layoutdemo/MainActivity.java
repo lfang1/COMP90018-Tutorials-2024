@@ -8,6 +8,7 @@ import android.view.View;
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.PopupMenu;
 import androidx.fragment.app.Fragment;
 
 import com.example.layoutdemo.databinding.ActivityMainBinding;
@@ -83,8 +84,53 @@ public class MainActivity extends AppCompatActivity {
                             .commit();
                     return true;
                 }
+                // Handle the "More" menu item
+                else if (id == R.id.navigation_more) {
+                    // Display additional options in a popup menu
+                    // This approach allows us to extend beyond the 5-icon limit of the bottom navigation bar
+                    showMoreOptions();
+                    return true;
+                }
                 return false;
             }
         });
     }
+
+    /**
+     * Displays a popup menu with additional layout options.
+     *
+     * This method creates a PopupMenu anchored to the 'more' navigation item.
+     * It inflates the menu from the 'menu_more_options' resource.
+     * The method returns true if the menu item is handled, false otherwise.
+     */
+    private void showMoreOptions() {
+        PopupMenu popup = new PopupMenu(this, findViewById(R.id.navigation_more));
+        popup.getMenuInflater().inflate(R.menu.menu_more_options, popup.getMenu());
+
+        popup.setOnMenuItemClickListener(item -> {
+            int id = item.getItemId();
+            if (id == R.id.navigation_grid) {
+                Fragment grid_layout = LayoutDemoFragment.newInstance(LayoutDemoFragment.GRID_DEMO);
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.layout_fragment, grid_layout)
+                        .addToBackStack(null)
+                        .commit();
+                return true;
+            } else if (id == R.id.navigation_constraint) {
+                Fragment constraint_layout = LayoutDemoFragment.newInstance(LayoutDemoFragment.CONSTRAINT_DEMO);
+                getSupportFragmentManager()
+                        .beginTransaction()
+                        .replace(R.id.layout_fragment, constraint_layout)
+                        .addToBackStack(null)
+                        .commit();
+                return true;
+            }
+            // Handle other options
+            return false;
+        });
+        popup.show();
+    }
+
+
 }
