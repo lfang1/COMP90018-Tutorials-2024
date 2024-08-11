@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import com.example.firstdemo.databinding.ActivityMain2Binding;
 
@@ -26,6 +27,16 @@ public class Main2Activity extends AppCompatActivity {
         setContentView(view);
 
         binding.previousMessage.setText(intent.getStringExtra(MainActivity.MESSAGE));
+
+        // Add button click listener
+        binding.button.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                //Explicit intent
+                Intent thirdActivityIntent = new Intent(Main2Activity.this, Main3Activity.class);
+                startActivity(thirdActivityIntent);
+            }
+        });
 
         // Handle the back press in API > Tiramisu
         OnBackPressedCallback callback = new OnBackPressedCallback(true) {

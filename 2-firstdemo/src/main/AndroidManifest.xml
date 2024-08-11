@@ -12,7 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.COMP900182024Tutorials"
         tools:targetApi="31">
-
+        <activity
+            android:name=".Main3Activity">
+        </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -22,13 +24,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
         <activity
             android:name=".Main2Activity"
             android:exported="true">
             <intent-filter>
-                <action android:name="SecondActivity"/>
-                <category android:name="android.intent.category.DEFAULT"/>
+                <action android:name="SecondActivity" />
+
+                <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
     </application>

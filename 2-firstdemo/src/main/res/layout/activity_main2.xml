@@ -14,4 +14,12 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="200dp"/>
 
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="50dp"
+        android:text="Click here to main activity 3"/>
+
 </LinearLayout>
