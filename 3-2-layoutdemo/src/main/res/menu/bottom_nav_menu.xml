@@ -21,4 +21,9 @@
         android:icon="@drawable/recycler_view_demo"
         android:title="Recycler View" />
 
+    <item
+        android:id="@+id/navigation_more"
+        android:icon="@drawable/more_icon"
+        android:title="More" />
+
 </menu>

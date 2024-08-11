@@ -22,6 +22,8 @@ public class LayoutDemoFragment extends Fragment {
     static int RELATIVE_DEMO = R.layout.fragment_layout_demo_relative;
     static int LIST_DEMO = R.layout.fragment_layout_demo_list;
     static int RECYCLER_DEMO = R.layout.fragment_layout_demo_recycler;
+    static int GRID_DEMO = R.layout.fragment_layout_demo_grid;
+    static int CONSTRAINT_DEMO = R.layout.fragment_layout_demo_constraint;
     static String LAYOUT_TYPE = "type";
 
     private int layout = R.layout.fragment_layout_demo_linear;
